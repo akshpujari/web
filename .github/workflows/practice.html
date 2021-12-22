@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .collapse {
+            width: 100%;
+            height: 22px;
+            margin: auto;
+            border-radius: 5px;
+            box-shadow: 0 1px 8px rgb(0 0 0 / 15%);
+            transition: height 0.3s;
+        }
+
+        .open {
+            height: 100px;
+        }
+
+        .toggle-button {
+            display: inline-block;
+            height: 22px;
+            width: 22px;
+            vertical-align: middle;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .toggle-button .fa {
+            font-size: 20px;
+        }
+
+        .open .toggle-button {
+            transform: rotate(90deg) translate(80px);
+        }
+
+        /* .name{
+            color: red;
+            position: relative;
+        } */
+        .moving-name {
+            /* width: 100px;
+            height: 100px; */
+            color: red;
+            position: relative;
+            /* animation-name: myname;
+            animation-duration: 4s;
+            animation-iteration-count: infinite; */
+            animation: myname 4s 2;
+            animation-direction: alternate;
+        }
+
+        @keyframes myname {
+            0% {
+                color: red;
+                transform: translate(0px, 0px);
+            }
+
+            25% {
+                color: yellow;
+                transform: translate(200px, 0px)
+            }
+
+            50% {
+                color: blue;
+                transform: translate(200px, 200px);
+            }
+
+            75% {
+                color: green;
+                transform: translate(0px, 200px);
+            }
+
+            100% {
+                color: red;
+                transform: translate(0px, 0px);
+            }
+        }
+
+        .motorcycle {
+            animation: motorcycle 8s 4;
+            font-size: 50px;
+        }
+
+
+        @keyframes motorcycle {
+            from {
+                transform: translate(0px, 0px);
+            }
+
+            to {
+                transform: translate(100%, 0px);
+            }
+
+        }
+
+        .ball {
+            width: 35px;
+            height: 35px;
+            display: inline-block;
+            position: relative;
+            margin: 1%;
+            border-radius: 50%;
+        }
+
+        .jumping-ball1 {
+            background-color: red;
+            animation: jumping 2s alternate ease-in infinite;
+        }
+
+        .jumping-ball2 {
+            background-color: green;
+            animation: jumping 2s alternate-reverse ease-in infinite;
+            animation-delay: 0.2s;
+        }
+
+        .jumping-ball3 {
+            background-color: blue;
+            animation: jumping 3s alternate ease-in infinite;
+            animation-delay: 0.4s;
+        }
+
+        .jumping-ball4 {
+            background-color: yellow;
+            animation: jumping 2s alternate ease-in infinite;
+            animation-delay: 1s;
+        }
+
+        .jumping-ball5 {
+            background-color: purple;
+            animation: jumping 3s alternate-reverse ease-in infinite;
+            /* animation-delay: 1s; */
+        }
+
+        @keyframes jumping {
+            from {
+                transform: translate(0px, 0px);
+            }
+
+            to {
+                transform: translate(0, 200px);
+            }
+        }
+
+        .ball-shadow {
+            width: 35px;
+            height: 10px;
+            display: inline-block;
+            position: relative;
+            margin: 1%;
+            border-radius: 50%;
+            border: 1px solid gray;
+            background-color: #201f1f;
+            opacity: 0.2;
+            box-shadow: 2px 2px 5px grey;
+
+        }
+
+        .shrink1 {
+            animation: shadow 2s alternate ease-in infinite;
+        }
+
+        .shrink2 {
+            animation: shadow 2s alternate-reverse ease-in infinite;
+            animation-delay: 0.2s;
+        }
+
+        .shrink3 {
+            animation: shadow 3s alternate ease-in infinite;
+            animation-delay: 0.4s;
+        }
+
+        .shrink4 {
+            animation: shadow 2s alternate ease-in infinite;
+            animation-delay: 1s;
+        }
+
+        .shrink5 {
+            animation: shadow 3s alternate-reverse ease-in infinite;
+            /* animation-delay: 0.4s; */
+        }
+
+        @keyframes shadow {
+            from {
+                transform: scale(0.5);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        function toggle() {
+            $('.collapse').toggleClass('open');
+        }
+        // function move(){
+        //     // console.log("move")
+        //     var element = document.getElementById("id");
+        //     element.classList.add("moving-name");
+        // }
+    </script>
+</head>
+
+<body>
+    <div>
+        <div id="myDIV" class="collapse">
+            <span id="toggle-button" class="toggle-button" onclick="toggle()">
+                <i class="fa fa-angle-right"></i>
+            </span>
+        </div>
+        <div class="motorcycle">
+            <i class="fa fa-motorcycle"></i>
+        </div>
+        <div style="text-align:center;">
+            <div class="ball jumping-ball1"></div>
+            <div class="ball jumping-ball2"></div>
+            <div class="ball jumping-ball3"></div>
+            <div class="ball jumping-ball4"></div>
+            <div class="ball jumping-ball5"></div>
+        </div>
+        <br><br><br><br><br><br><br><br><br>
+        <div style="text-align:center;">
+            <div class="ball-shadow shrink1"></div>
+            <div class="ball-shadow shrink2"></div>
+            <div class="ball-shadow shrink3"></div>
+            <div class="ball-shadow shrink4"></div>
+            <div class="ball-shadow shrink5"></div>
+        </div>
+        <!-- <div class="moving-name">Akshata</div> -->
+    </div>
+</body>
+
+</html>
